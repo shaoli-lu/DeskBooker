@@ -1,4 +1,5 @@
 ﻿using DeskBooker.Core.Domain;
+using Shouldly;
 using System;
 using Xunit;
 
@@ -29,6 +30,12 @@ namespace DeskBooker.Core.Processor
             Assert.Equal(request.LastName, result.LastName);
             Assert.Equal(request.Email, result.Email);
             Assert.Equal(request.Date, result.Date);
+
+            result.ShouldNotBeNull();
+            result.FirstName.ShouldBe(request.FirstName);
+            result.Email.ShouldBe(request.Email);
+            result.Date.ShouldBe(request.Date);
+
 
         }
 
