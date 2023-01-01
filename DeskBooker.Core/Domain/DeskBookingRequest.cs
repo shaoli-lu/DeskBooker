@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeskBooker.Core.Processor
+namespace DeskBooker.Core.Domain
 {
     public class DeskBookingRequest
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeskBooker.Core.Domain;
+using System;
 using Xunit;
 
 namespace DeskBooker.Core.Processor
@@ -29,6 +30,15 @@ namespace DeskBooker.Core.Processor
             Assert.Equal(request.Email, result.Email);
             Assert.Equal(request.Date, result.Date);
 
+        }
+
+        [Fact]
+        public void ShouldThowExceptionIfRequestIsNull()
+        {
+            var processor = new DeskBookongProcessor();
+
+            var exception = Assert.Throws<ArgumentNullException>(() => processor.BookDesk(null));
+            Assert.Equal("request", exception.ParamName);
         }
     }
 }
